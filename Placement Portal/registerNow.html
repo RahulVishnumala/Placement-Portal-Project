@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Now page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("REgisterBgImg.jpg");
+            background-color: aqua;
+            background-size: 150%;
+            background-position: -500px 0px;
+        }
+         div.main{
+            width: 400px;
+            margin-left: 30px;
+            margin-top: 110px;
+        }
+       h2{
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+       div.register{
+            background-color: rgba(49, 50, 52, 0.888);
+            width: 100%;
+            font-size: 18px;
+            border-radius: 10px;
+            border: 1px solid orangered;
+            box-shadow: 2px 2px 15px rgb(14, 228, 103);
+            color: blueviolet;
+            margin-bottom: 100px;
+        }
+       form#register{
+            margin: 50px;
+            margin-top: -3px;
+        } 
+        label{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            font-style: bold;
+        }
+       button#name{
+            width: 300px;
+            border: 1px solid orangered;
+            border-radius: 4px;
+            outline: 0;
+            padding: 7px;
+            background-color: azure;
+            box-shadow: inset 1px 1px 1px lightslategray;
+        }
+        button#submit{
+            width: 150px;
+            padding: 5px;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: 600;
+            border-radius: 4px;
+            background-color: aquamarine;
+            color:blue;
+            cursor: pointer;
+            border: 1px solid greenyellow;
+            box-shadow: 1px 1px 5px orangered;
+            /* margin-bottom: 10px; */
+            margin-top: 10px;
+        }
+        label,span,h2{
+            text-shadow: 1px 1px 5px green;
+        } 
+        #alert1{
+        display: none;
+        background-color: lightslategray;
+        border-radius: 15px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 110px;
+        padding-top: 2px;
+        border-bottom: 2px solid orangered;
+        box-shadow: 5px 10px 18px blue;
+    }
+    #msg{
+        font-size: medium;
+        font-weight: 500;
+        font-family: sans-serif;
+        vertical-align: middle;
+        text-align: center;
+        color: black;
+    }
+    #hint{
+        font-size: medium;
+        font-weight: 500;
+        font-family: sans-serif;
+        vertical-align: middle;
+        text-align: center;
+        color: black; 
+    }
+#ok{
+    color:black;
+    display: block;
+    width: 80px;
+    height: 30px;
+    margin: 22px 110px;
+    border: none;
+    background-color: orange;
+    text-align: center;
+    border-radius: 5px;
+   }
+   #ok:hover{
+    color: black;
+    background-color: orangered;
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+   <div class="main">
+    <div class="register">
+        <h2>Register Here</h2>
+        <form id="register" method="post">
+            <label>First Name : </label>
+            <br>
+            <input type="text" name="fname"
+            id="name" placeholder="Enter Your First Name">
+            <br>
+            <label>Last Name : </label>
+            <br>
+            <input type="text" name="lname"
+            id="name" placeholder="Enter Your Last Name">
+            <br>
+            <label>Email : </label>
+            <br>
+            <input type="email" name="email"
+            id="name" placeholder="Enter your valid Email">
+            <br>
+            <label>Gender : </label>
+            <br>
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender"
+            id="male">
+            &nbsp;
+            <span id="male">Male</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender"
+            id="female">
+            &nbsp;
+            <span id="female">Female</span>
+            <br>
+            <label>Eligible : </label>
+            <br>
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="criteria"
+            id="student">
+            &nbsp;
+            <span id="student">Student</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="criteria"
+            id="admin">
+            &nbsp;
+            <span id="admin">Placement Officer</span>
+            <div id="Sub_form">
+                <button class="btn2" onclick="alert1()">Submit</button>
+            </div> 
+        </form>
+        <div id="alert1">
+            <div id="msg"><b>Your Details
+                has been successfully Submitted..!</b></div>
+            <div id="hint">Thank You..!</div>
+            <div >
+                <button id="ok" onclick="hide1()">Ok</div>
+        </div>
+        </div>
+        
+   </div>
+   <script>
+     function hide1(){
+          var alert=document.getElementById("alert1");
+          alert.style.display="none"
+        } 
+        function alert1(){
+          var alert=document.getElementById("alert1");
+          alert.style.display="block";
+        } 
+   </script>
+</body>
+</html>

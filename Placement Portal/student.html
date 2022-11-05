@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students's Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+      *{
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'open sans', sans-serif;
+      }
+      body{
+       background: grey;
+      }
+      .wrapper .sidebar{
+        background: rgb(5, 68, 105);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 225px;
+        height: 100%;
+        padding: 20px 0;
+        transition: all 0.5s ease;
+      }
+      .wrapper .sidebar .profile{
+        margin-bottom: 35px;
+        text-align: center;
+      }
+      .wrapper .sidebar .profile img{
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+      .wrapper .sidebar .profile h3{
+        color: rgb(250, 154, 52);
+        margin: 10px 0 5px;
+      }
+      .wrapper .sidebar .profile p{
+        color: rgb(250, 154, 52);
+        font-size: 15px;
+      }
+      .wrapper .sidebar ul li a{
+        width: 225px; 
+        display: block;
+        padding: 13px 30px;
+        color: rgb(250, 154, 52);
+        font-size: 17px;
+        position: relative;
+        cursor: pointer;
+        background-color: rgb(5, 68, 105);
+      }
+      /* .Student .sidebar ul li a .item{
+        position: relative;
+      } */
+      .wrapper .sidebar ul li a .icon{
+        color:rgb(250, 154, 52);
+        width: 30px;
+        display: inline-block;
+      }
+      .wrapper .sidebar ul li a:hover,
+      .wrapper .sidebar ul li a.active{
+        color:orangered;
+        background: lightblue;
+        border-top: 3px solid orangered;
+        border-left:2px solid orangered;
+        border-bottom: 2px solid orangered;
+        border-right: 2px solid orangered;
+      }
+      .wrapper .sidebar ul li a:hover .icon,
+      .wrapper .sidebar ul li a.active .icon{
+        color:orangered;
+      }
+      .wrapper .sidebar ul li a:hover::before,
+      .wrapper .sidebar ul li a.active::before{
+        display: block;
+      }
+      .wrapper .section22{
+        width:calc(100% - 225px);
+        margin-left: 225px;
+        transition: all 0.5s ease;
+      }
+      .wrapper .section22 .top_nav{
+        background-color: rgb(5, 68, 105);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        margin-bottom: 200px;
+      }
+
+      .wrapper .section22 .top_nav .hamburger a{
+        font-size: 28px;
+        color: orangered;
+      }
+      body.active .wrapper .sidebar{
+        left: -225px;
+      }
+      body.active .wrapper .section22{
+        margin-left: 0;
+        width: 100%;
+      }
+      .wrapper .bodii{
+       margin-left: 225px;
+       height: 565px;
+       margin-top: -200px;
+       transition: all 0.5s ease;
+      }
+      .bodii{
+        background: lightslategray;
+      }
+      body.active .wrapper .bodii{
+        margin-left: 0;
+        width: 100%;  
+      }
+      section{
+        display: flex;
+        justify-self: auto;
+        align-self: auto;
+        min-height: 100vh;
+        min-width: fit-content;
+        margin-left: 0;
+        width: 100%;
+      }
+      #profile_id{
+         background: lightgray;
+      }
+      #profile_id .studentPg .top_nav_stu{
+        background: rgb(5, 68, 105);
+        margin-top: 15px;
+        height: 35px;
+        min-width: 1120px;
+        margin-left: 3px;
+      }
+      #profile_id .studentPg .top_nav_stu h3{
+        margin-left: 550px;
+        text-decoration: underline;
+        padding-top: 8px;
+        color: bisque;
+        font-weight: 600;
+      }
+      #profile_id .studentPg .stu_prof_stu{
+        margin-top: 0px;
+        margin-left: 3px;
+        box-sizing: border-box;
+        border: 15px solid lightslategray;
+        background: gray;
+        max-width:300px;
+        min-height: 85vh;
+      }
+      #profile_id .studentPg .stu_prof_stu img{
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+        margin-left: 40px;
+        margin-top: 20px;
+        border: 10px solid orangered;
+        border-radius: 50%;
+      }
+      #profile_id .studentPg .stu_prof_stu h3{
+        margin-left: 50px;
+      }
+      #profile_id .studentPg .stu_prof_stu p{
+        margin-left: 50px;
+        padding: 5px;
+      }
+      #profile_id .studentPg .stu_prof_stu .stu_dataa{
+        margin-top: 25px;
+      }
+      .bodii .studentPg .table_info1{
+        min-width: 400px;
+        min-height: 85vh;
+        margin-left: 310px;
+        margin-top: -524px;
+        box-sizing: border-box;
+        border: 15px solid lightslategray;
+        background: lightpink;
+        padding: 58px;
+      }
+     .bodii .studentPg .table_1{
+        border-collapse: collapse;
+        margin-top: 50px;
+      } 
+      .bodii .studentPg .table_info1 .table_1 .tbl_hd_11,.tbl_dt_11{
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid orangered;
+        min-width: 330px;
+      }
+      #drive_id{
+        background: rgb(79, 68, 68);
+        font-family: sans-serif;
+        max-width: 100%;
+        min-height: fit-content;
+      }
+      #tbl1_id{
+        max-width: 500px;
+        max-height: 550px;
+        border-collapse: collapse;
+        margin-left: 15px;
+      }
+      #tbl1_id .thead_22{
+        background-color: red;
+      }
+      #tbl1_id .thead_22 .trow_22 .thad_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: antiquewhite;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+      }
+      #tbl1_id .Tbod_22 .trow_222 .tbda_20{
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: whitesmoke;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid cyan;
+      }
+      #tbl1_id .Tbod_22 .trow_222 .tbda_20 .btn101{
+       color: wheat;
+       text-decoration: none;
+       line-height: 23px;
+       width: 124px;
+       background: red;
+       display: block;
+       border-radius: 7px;
+      }
+      #tbl1_id .Tbod_22 .trow_222 .tbda_20 .btn101:hover{
+        background-color: blueviolet;
+      }
+      .h2_cls{
+        margin-left: 160px;
+        color: bisque;
+        text-decoration: underline;
+        padding: 5px;
+      }
+      #drive_id .drivee_2nd{                         /* #table_2_id{ */
+        margin-left: 10px;
+        min-width: 560px;
+        
+      } 
+      #drive_id .drivee_2nd .h222_clas{
+        margin-left: 150px;
+        padding: 5px;
+        color: bisque;
+        text-decoration: underline;
+      }
+      #tbll2_22{
+        min-width: 500px;
+        min-height: 450px;
+        border-collapse: collapse;
+        margin-left: 15px;
+      }
+      #tbll2_22 .thead_22{
+        background-color: red;
+      }
+      #tbll2_22 .thead_22 .trow_22 .thad_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: antiquewhite;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+      }
+      #tbll2_22 .Tbod_22 .trow_222 .tbda_20
+      {
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: whitesmoke;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid cyan;
+      }
+      #tbll2_22 .Tbod_22 .trow_222 .tbda_20 .btn101{
+        color: black;
+       text-decoration: none;
+       line-height: 23px;
+       width: 124px;
+       background: yellowgreen;
+       display: block;
+       border-radius: 7px;
+      }
+      #sum_sec_id{
+        background: rgb(75, 75, 75);
+        font-family: sans-serif;
+        max-width: 100%;
+        max-height: 100vh;
+      }
+      #sum_sec_id .sec_3_d1{
+        min-width: 365px;
+        min-height: 450px;
+        background-color: rgb(124, 120, 120);
+        margin-left: 5px;
+        margin-top: 7px;
+      }
+      #sum_sec_id .det_1_cls .summ_1{
+        margin-left: 65px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        max-width: 250px;
+        min-height: 30px;
+        background-color: lightsalmon;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 3px;
+        transition: 0.3s ease;
+      }
+      .summ_1{
+        padding: 3px;
+        margin-top: 2px;
+        font-weight: 400;
+      }
+      .summ_1:hover{
+        background: rgb(185, 41, 41);
+        color: black;
+        transform: translateY(-3px);
+      }
+      #sum_sec_id .sec_3_d2{
+        min-width: 365px;
+        min-height: 450px;
+        background-color: rgb(124, 120, 120);
+        margin-left: 5px;
+        margin-top: 7px;
+      }
+      #sum_sec_id .sec_3_d2 .sum_2{
+        margin-left: 65px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        max-width: 250px;
+        min-height: 30px;
+        background-color: lightsalmon;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 3px;
+        transition: 0.3s ease;
+      }
+      .sum_2{
+        padding: 3px;
+        margin-top: 2px;
+        font-weight: 400;
+      }
+      .sum_2:hover{
+        background: rgb(185, 41, 41);
+        color: black;
+        transform: translateY(-3px);     
+      }
+      #sum_sec_id .sec_3_d3{
+        min-width: 365px;
+        min-height: 450px;
+        background-color: rgb(124, 120, 120);
+        margin-left: 5px;
+        margin-top: 7px;
+      }
+      #sum_sec_id .sec_3_d3 .sum_3{
+        margin-left: 65px;
+        margin-top: 20px;
+        box-sizing: border-box;
+        max-width: 250px;
+        min-height: 30px;
+        background-color: lightsalmon;
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 3px;
+        transition: 0.3s ease;
+      }
+      .sum_3{
+        padding: 3px;
+        margin-top: 2px;
+        font-weight: 400;
+      }
+      .sum_3:hover{
+        background: rgb(185, 41, 41);
+        color: black;
+        transform: translateY(-3px);
+      }
+      .spn_1{
+        margin-left: 30px;
+        margin-top: 5px;
+      }
+      .spn_2{
+        margin-left: 55px;
+        margin-top: 5px;
+      }
+      .spn_3{
+        margin-left: 56px;
+        margin-top: 4px;
+      }
+      .sum_data_1_tbl{
+        margin-left: 10px;
+        margin-top: 25px;
+        min-width: 300px;
+        min-height: 250px;
+        border-collapse: collapse;
+      }
+      .sum_data_1_tbl .thead_22{
+        background-color: red;
+      }
+      .sum_data_1_tbl .thead_22 .trow_22 .thad_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: antiquewhite;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+      }
+      .sum_data_1_tbl .Tbod_22 .trow_222 .tbda_20
+      {
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: whitesmoke;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid cyan;
+      }
+      .sum_data_1_tbl .Tbod_22 .trow_222 .tbda_20 .Quali_1{
+        color: black;
+       text-decoration: none;
+       line-height: 23px;
+       width: 90px;
+       background: yellowgreen;
+       display: block;
+       border-radius: 7px;
+      }
+      .sum_data_1_tb2{
+        margin-left: 10px;
+        margin-top: 25px;
+        min-width: 300px;
+        min-height: 250px;
+        border-collapse: collapse;
+      }
+      .sum_data_1_tb2 .thead_22{
+        background-color: red;
+      }
+      .sum_data_1_tb2 .thead_22 .trow_22 .thad_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: antiquewhite;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+      }
+      .sum_data_1_tb2 .Tbod_22 .trow_222 .tbda_20
+      {
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: whitesmoke;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid cyan;
+      }
+      .sum_data_1_tb2 .Tbod_22 .trow_222 .tbda_20 .Quali_1{
+        color: black;
+       text-decoration: none;
+       line-height: 23px;
+       width: 90px;
+       background: yellowgreen;
+       display: block;
+       border-radius: 7px;
+      }
+      .sum_data_1_tb3{
+        margin-left: 10px;
+        margin-top: 25px;
+        min-width: 300px;
+        min-height: 250px;
+        border-collapse: collapse;
+      }
+      .sum_data_1_tb3 .thead_22{
+        background-color: red;
+      }
+      .sum_data_1_tb3 .thead_22 .trow_22 .thad_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: antiquewhite;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+      }
+      .sum_data_1_tb3 .Tbod_22 .trow_222 .tbda_20
+      {
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: whitesmoke;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid cyan;
+      }
+      .sum_data_1_tb3 .Tbod_22 .trow_222 .tbda_20 .Quali_1{
+        color: black;
+       text-decoration: none;
+       line-height: 23px;
+       width: 90px;
+       background: yellowgreen;
+       display: block;
+       border-radius: 7px;
+      }
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+      <div class="sidebar">
+        <div class="profile">
+            <img src="student.png" alt="No Image Found">
+            <h3>Rahul Raj</h3>
+            <p>CSE B.Tech</p>
+        </div>
+           <ul>
+             <li><a href="#profile_id">
+                 <span class="icon"><i class="fa-solid fa-user"></i></span>
+                 <span class="item">MY PROFILE</span>
+                </a></li>
+             <li><a href="announcements.html">
+                <span class="icon"><i class="fa-solid fa-bullhorn"></i></span>
+                <span class="item">UPDATES</span>
+            </a></li>
+             <li><a href="#drive_id">
+                <span class="icon"><i class="fa-regular fa-pen-to-square"></i></span>
+                <span class="item">DRIVES</span>
+            </a></li>
+             <li><a href="#sum_sec_id">
+                <span class="icon"><i class="fa-solid fa-square-poll-horizontal"></i></span>
+                <span class="item">SUMMARY</span>
+            </a></li>
+             <li><a href="placement.html">
+                <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                <span class="item">LOGOUT</span>
+            </a></li>
+          </ul>
+      </div>
+      <div class="section22">
+        <div class="top_nav">
+          <div class="hamburger">
+            <a href="#"><i class="fas fa-bars"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="bodii" id="body_main">
+
+        <!-- PROFILE PAGE -->
+
+        <section id="profile_id">
+          <div class="studentPg">
+            <div class="top_nav_stu">
+                <h3>MY PROFILE</h3>
+            </div>
+            <div class="stu_prof_stu">
+                <img class="profImgg" src="student.png" alt="NOT FOUND">
+                        <h3>Rahul Raj</h3>
+                        <h3>CSE B.Tech</h3>
+                    <div class="stu_dataa">
+                            <p class="text_1"><strong class="data-1">Student ID:</strong>12006956</p>
+                            <p class="text_1"><strong class="data-1">YEAR:</strong>3<sup>rd</sup></p>
+                            <p class="text_1"><strong class="data-1">Section:</strong>K20NR</p>
+                    </div>       
+            </div>
+            <div class="table_info1">
+                <table class="table_1">
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Name :</th>
+                        <td class="tbl_dt_11">Rahul Raj</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Reg.No. :</th>
+                        <td class="tbl_dt_11">10000001</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Father'sName:</th>
+                        <td class="tbl_dt_11">V Kumar</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Mother'sName:</th>
+                        <td class="tbl_dt_11">N Devi</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Gender :</th>
+                        <td class="tbl_dt_11">M</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Student Mobile :</th>
+                        <td class="tbl_dt_11">9939641961</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">Email Id :</th>
+                        <td class="tbl_dt_11">rajrahul2022@gmail.com</td>
+                    </tr>
+                    <tr class="table1_row1">
+                        <th class="tbl_hd_11">DOB :</th>
+                        <td class="tbl_dt_11">02/02/2002</td>
+                    </tr>
+                </table>
+        
+            </div>
+           
+        </div>
+        </section>
+
+        <!-- DRIVE_ID-->
+
+       <section id="drive_id">
+        <div class="drive_2">
+          <div class="F1st_table" id="f1st_tblid">
+            <table class="drive_tbl" id="tbl1_id">
+              <h2 class="h2_cls">Ongoing Drives</h2>
+               <thead class="thead_22">
+                <tr class="trow_22">
+                  <th class="thad_2">Company</th>
+                  <th class="thad_2">Branch</th>
+                  <th class="thad_2">Applicability</th>
+                  <th class="thad_2">Dead-line</th>
+                  <th class="thad_2">Status</th>
+                </tr>
+               </thead>
+               <tbody class="Tbod_22">
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">TCS</td>
+                  <td class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">02-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">ABC Agro</td>
+                  <td class="tbda_20" data-label="Branch">Agriculture</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 6.5</td>
+                  <td class="tbda_20" data-label="Dead-line">12-Dec-2022</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Electro-Magno</td>
+                  <td class="tbda_20" data-label="Branch">Electrical</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.5</td>
+                  <td class="tbda_20" data-label="Dead-line">01-Feb-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Wipro</td>
+                  <td class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">02-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Flipkart</td>
+                  <td class="tbda_20" data-label="Branch">CSE / MBA</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.5</td>
+                  <td class="tbda_20" data-label="Dead-line">10-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Bio-Farma</td>
+                  <td class="tbda_20" data-label="Branch">Physiotherapy</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">09-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Hero</td>
+                  <td class="tbda_20" data-label="Branch">Mechanical</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 6.0</td>
+                  <td class="tbda_20" data-label="Dead-line">07-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Benz</td>
+                  <td class="tbda_20" data-label="Branch">Mechanical, Electrical</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">01-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Infosys</td>
+                  <td class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.5</td>
+                  <td class="tbda_20" data-label="Dead-line">19-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="registerNow.html" class="btn101">Register</a></td>
+                </tr>
+               </tbody>
+             </table>
+          </div>
+          </div>
+          <div class="drivee_2nd" id="table_2_id">
+            <table class="tbl22_22" id="tbll2_22">
+              <h2 class="h222_clas">Upcoming Drives</h2>
+              <thead class="thead_22">
+                <tr class="trow_22">
+                  <th class="thad_2">Company</th>
+                  <th class="thad_2">Branch</th>
+                  <th class="thad_2">Applicability</th>
+                  <th class="thad_2">Coming Date</th>
+                  <th class="thad_2">Status</th>
+                </tr>
+               </thead>
+               <tbody class="Tbod_22">
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Amazon</td>
+                  <td class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">02-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="" class="btn101">Comming..</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td  class="tbda_20" data-label="Company">OLA</td>
+                  <td  class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 6.5</td>
+                  <td class="tbda_20" data-label="Dead-line">12-Dec-2022</td>
+                  <td class="tbda_20" data-label="#"><a href="" class="btn101">Comming..</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">OYO</td>
+                  <td class="tbda_20" data-label="Branch">Hotel Mngmnt</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.5</td>
+                  <td class="tbda_20" data-label="Dead-line">01-Feb-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="" class="btn101">Comming..</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Atos</td>
+                  <td class="tbda_20" data-label="Branch">CSE</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.0</td>
+                  <td class="tbda_20" data-label="Dead-line">02-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="" class="btn101">Comming..</a></td>
+                </tr>
+                <tr class="trow_222">
+                  <td class="tbda_20" data-label="Company">Meesho</td>
+                  <td class="tbda_20" data-label="Branch">CSE / MBA</td>
+                  <td class="tbda_20" data-label="Applicability">CGPA > 7.5</td>
+                  <td class="tbda_20" data-label="Dead-line">10-Jan-2023</td>
+                  <td class="tbda_20" data-label="#"><a href="" class="btn101">Comming..</a></td>
+                </tr>
+             </table>
+        </div>
+       </section>
+ 
+        <!--SUMMARY SECTION  -->
+
+       <section  class="sec_3_clas" id="sum_sec_id">
+         <div class="sec_3_d1">
+           <details class="det_1_cls">
+             <summary class="summ_1"><span class="spn_1">My Academic Performance</span></summary>
+             <div id="sum_data_1">
+                <table class="sum_data_1_tbl">
+                  <thead class="thead_22">
+                    <tr class="trow_22">
+                      <th class="thad_2">YEAR</th>
+                      <th class="thad_2">CGPA</th>
+                      <th class="thad_2">Back-Logs</th>
+                      <th class="thad_2">Status</th>
+                    </tr>
+                   </thead>
+                   <tbody class="Tbod_22">
+                    <tr class="trow_222">
+                      <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                      <td class="tbda_20" data-label="CGPA">7.39</td>
+                      <td class="tbda_20" data-label="Back-Logs">0</td>
+                      <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                    </tr>
+                    <tr class="trow_222">
+                      <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                      <td class="tbda_20" data-label="CGPA">7.39</td>
+                      <td class="tbda_20" data-label="Back-Logs">0</td>
+                      <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                    </tr>
+                    <tr class="trow_222">
+                      <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                      <td class="tbda_20" data-label="CGPA">7.39</td>
+                      <td class="tbda_20" data-label="Back-Logs">0</td>
+                      <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                    </tr>
+                    <tr class="trow_222">
+                      <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                      <td class="tbda_20" data-label="CGPA">7.39</td>
+                      <td class="tbda_20" data-label="Back-Logs">0</td>
+                      <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                    </tr>   
+                </table>
+             </div>
+           </details>
+         </div>
+         <div class="sec_3_d2">
+          <details class="det_2_cls">
+            <summary class="sum_2"><span class="spn_2">Technical Scores</span></summary>
+            <div id="sum_data_2">
+              <table class="sum_data_1_tb2">
+                <thead class="thead_22">
+                  <tr class="trow_22">
+                    <th class="thad_2">YEAR</th>
+                    <th class="thad_2">CGPA</th>
+                    <th class="thad_2">Back-Logs</th>
+                    <th class="thad_2">Status</th>
+                  </tr>
+                 </thead>
+                 <tbody class="Tbod_22">
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr> 
+              </table>
+
+            </div>
+          </details>
+        </div>
+        <div class="sec_3_d3">
+          <details class="det_3_cls">
+            <summary class="sum_3"><span class="spn_3">Placement Records</span></summary>
+            <div id="sum_data_3">
+              <table class="sum_data_1_tb3">
+                <thead class="thead_22">
+                  <tr class="trow_22">
+                    <th class="thad_2">YEAR</th>
+                    <th class="thad_2">CGPA</th>
+                    <th class="thad_2">Back-Logs</th>
+                    <th class="thad_2">Status</th>
+                  </tr>
+                 </thead>
+                 <tbody class="Tbod_22">
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr>
+                  <tr class="trow_222">
+                    <td class="tbda_20" data-label="YEAR">1<sup>st</sup></td>
+                    <td class="tbda_20" data-label="CGPA">7.39</td>
+                    <td class="tbda_20" data-label="Back-Logs">0</td>
+                    <td class="tbda_20" data-label="Status"><span class="Quali_1">Qualified</span></td>
+                  </tr> 
+              </table>
+
+            </div>
+          </details>
+        </div>
+       </section>
+      </div>
+      
+      
+</div>
+
+
+
+<script>
+    var ham = document.querySelector(".hamburger");
+    ham.addEventListener("click",function(){
+      document.querySelector("body").classList.toggle("active");
+    }) 
+</script>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor =>{
+      anchor.addEventListener("click",function(e){
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+              // behavior:"smooth"
+          });
+      });
+  });
+</script>
+
+
+</body>
+</html>

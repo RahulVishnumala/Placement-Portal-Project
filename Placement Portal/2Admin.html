@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admins Page</title>
+    <style>
+  *{
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'open sans', sans-serif;
+      }
+    .container1 .header1{
+        background: black;
+        max-height: 67px;
+        position: fixed;
+        width: 100%;
+    }
+    .logo img{
+        box-sizing: border-box;
+        border: 2px solid black;
+        border-radius: 50%;
+        max-width: 60px;
+        margin-left: 30px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .logo_h3 h3{
+        margin-left: 90px;
+        color: bisque;
+        font-family: Verdana, sans-serif;
+        font-size: 15px;
+        margin-top: -35px;
+        cursor: pointer;
+    }
+    .container1 .top_nav .nav11:after{
+        content: '';
+        clear: both;
+        display: table;
+    }
+    .container1 .top_nav .nav11 .ul_11{
+        margin-left: 570px;
+        margin-top: -57px;
+        position: relative;
+        display: inline-block;
+        
+    }
+    .container1 .top_nav .nav11 .ul_11 .li_11{
+        float: left;
+        margin-right: 30px;
+        background: black;
+        margin: 0 8px;
+    }
+    .container1 .top_nav .nav11 .ul_11 .li_11 a{
+        color: azure;
+        line-height: 60px;
+        font-size: 17px;
+        padding: 7px 16px;
+    }
+    .container1 .top_nav .nav11 .ul_11 .li_11 a:hover{
+        color: orangered;
+        border-radius: 5px;
+        box-shadow: 0 0 5px cyan,
+                    0 0 5px cyan;
+    }
+    .container1 .top_nav .nav11 .ul_11 .ull_111{
+        position: absolute;
+        background: black;
+        top: 70px;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: top .3s;
+    }
+    .container1 .top_nav .nav11 .ul_11 .li_11:hover > .ull_111{ 
+         top: 55px;
+         opacity: 1;
+         visibility: visible;
+    }
+    .container1 .top_nav .nav11 .ul_11 .ull_111 .lii_11{
+        position: relative;
+        margin: 0;
+        width: 150px;
+        float: none;
+        display: list-item;
+        border-bottom: 1px solid cyan;
+    }
+    .container1 #sec_11, #sec_12, #sec_13, #sec_14, #sec_15,
+    #sec_16, #sec_17, #sec_18, #sec_19{
+        display: flex;
+        justify-content: left;
+        min-height: 100vh;
+        width: 100%;
+    }
+    .container1 #sec_11{
+        background-color: rgb(59, 64, 69);
+    }
+    .container1 #sec_11 .ash_1{
+        margin-top: 100px;
+    }
+    .container1 #sec_11 .ash_1 .tbbl_1{
+        background: lightsalmon;
+        margin-left: 260px;
+        min-width: 850px;
+        min-height: 450px;
+        border-collapse: collapse;
+    }
+    #sec_11 .h2_clss{
+        color: whitesmoke;
+        margin-left: 565px;
+        margin-top: -20px;
+        padding-bottom: 15px;
+        text-decoration: underline;
+    }
+    .container1 #sec_11 .thh_1{
+        background: rgb(76, 36, 113);
+    }
+    .container1 #sec_11 .thh_1 .tr1_1 .thdd_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: black;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+    }
+    .container1 #sec_11 .TBOD_1 .tr2_2 .tbdd_20{
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: black;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid orangered;
+    }
+    .container1 #sec_11 .TBOD_1 .tr2_2 .btn101{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 67px;
+       line-height: 23px;
+       width: 124px;
+       background: rgb(174, 30, 30);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_11 .TBOD_1 .tr2_2 .btn100{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 67px;
+       line-height: 23px;
+       width: 124px;
+       background: rgb(88, 127, 28);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_12{
+        background-color: rgb(84, 106, 128);
+        
+    }
+    .container1 #sec_12 .ash_2{
+        margin-top: 100px;
+    }
+    .container1 #sec_12 .ash_2 .tbbl_1{
+        background: lightsalmon;
+        margin-left: 260px;
+        min-width: 850px;
+        min-height: 450px;
+        border-collapse: collapse;
+    }
+    #sec_12 .h2_clss{
+        color: whitesmoke;
+        margin-left: 565px;
+        margin-top: -8px;
+        padding-bottom: 15px;
+        text-decoration: underline;
+    }
+    #sec_12 #filtr_btn{
+        color: beige;
+        text-align: center;
+        margin-left: 1130px;
+        margin-top: -250px;
+        min-width: 40px;
+        min-height: 20px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        background-color: brown;
+        cursor: pointer;
+        
+    }
+    #sec_12 #txt{
+        color: black;
+       padding: 8px;
+    }
+    .container1 #sec_12 .thh_1{
+        background: rgb(52, 41, 63);
+    }
+    .container1 #sec_12 .thh_1 .tr1_1 .thdd_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: wheat;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+    }
+    .container1 #sec_12 .TBOD_1 .tr2_2 .tbdd_20{
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: black;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid orangered;
+    }
+    .container1 #sec_12 .TBOD_1 .tr2_2 .btn101{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 67px;
+       line-height: 23px;
+       width: 124px;
+       background: rgb(174, 30, 30);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_12 .TBOD_1 .tr2_2 .btn100{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 67px;
+       line-height: 23px;
+       width: 124px;
+       background: rgb(88, 127, 28);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_12 .TBOD_1 .tr2_2 .btn105{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 37px;
+       line-height: 20px;
+       width: 104px;
+       background: rgb(174, 30, 30);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_13{
+        background-color: rgb(84, 106, 128);
+        
+    }
+    .container1 #sec_13 .ash_3{
+        margin-top: 130px;
+    }
+    .container1 #sec_13 .ash_3 .tbbl_1{
+        background: lightsalmon;
+        margin-left: 260px;
+        min-width: 850px;
+        min-height: 350px;
+        border-collapse: collapse;
+    }
+    #sec_13 .h2_clss{
+        color: whitesmoke;
+        margin-left: 565px;
+        margin-top: -8px;
+        padding-bottom: 15px;
+        text-decoration: underline;
+    }
+    .container1 #sec_13 .thh_1{
+        background: rgb(52, 41, 63);
+    }
+    .container1 #sec_13 .thh_1 .tr1_1 .thdd_2{
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
+        color: wheat;
+        opacity: 1;
+        padding: 12px;
+        vertical-align: top;
+        border: 2px solid black;
+    }
+    .container1 #sec_13 .TBOD_1 .tr2_2 .tbdd_20{
+        font-size: 14px;
+        letter-spacing: 0.35px;
+        font-weight: 400;
+        color: black;
+        padding: 8px;
+        text-align: center;
+        border: 1.5px solid orangered;
+    }
+    .container1 #sec_13 .TBOD_1 .tr2_2 .btn100{
+       color: whitesmoke;
+       text-decoration: none;
+       margin-left: 67px;
+       line-height: 23px;
+       width: 124px;
+       background: rgb(22, 209, 103);
+       display: block;
+       border-radius: 7px;
+    }
+    .container1 #sec_13 #tick2{
+        cursor: pointer;
+        min-width: 20px;
+        min-height: 20px;
+    }
+    .container1 #sec_13{
+        background-color: rgb(59, 64, 69);
+    }
+    .container1 #sec_14{
+        background-color: rgb(84, 106, 128);
+    }
+    .container1 #sec_15{
+        background-color: rgb(59, 64, 69);
+    }
+    .container1 #sec_16{
+        background-color: rgb(84, 106, 128);
+    }
+    .container1 #sec_17{
+        background-color: rgb(59, 64, 69);
+    }
+    .container1 #sec_18{
+        background-color: rgb(84, 106, 128);
+    }
+    .container1 #sec_19{
+        background-color: rgb(59, 64, 69);
+    }
+    </style>
+</head>
+<body>
+    <div class="container1">
+     <header>
+       <div class="header1">
+        <div id="head_id">
+           <div class="top_nav">
+              <div class="logo"><img  src="admin.jpg" alt="Image Not Found"></div>
+              <div class="logo_h3"><h3>Admin</h3></div>
+              <div class="nav11">
+                <ul class="ul_11">
+                  <li class="li_11">
+                    <a href="">STUDENTS</a>
+                    <ul class="ull_111">
+                        <li class="lii_11"><a href="#sec_11">LIST</a></li>
+                        <li class="lii_11"><a href="#sec_12">FILTER</a></li>
+                        <li class="lii_11"><a href="#sec_13">REGISTER</a></li>
+                    </ul>
+                  </li>
+                  <li class="li_11">
+                    <a href="">DRIVES</a>
+                    <ul class="ull_111">
+                        <li class="lii_11"><a href="#sec_14">CREATE</a></li>
+                        <li class="lii_11"><a href="#sec_15">VIEW</a></li>
+                    </ul>
+                  </li>
+                  <li class="li_11">
+                    <a href="">PERMISSIONS</a>
+                    <ul class="ull_111">
+                        <li class="lii_11"><a href="#sec_16">BLOCK</a></li>
+                        <li class="lii_11"><a href="#sec_17">UNBLOCK</a></li>
+                    </ul>
+                  </li>
+                  <li class="li_11"><a href="#sec_18">ANNOUNCEMENTS</a></li>
+                  <li class="li_11"><a href="#sec_19">SUMMARY</a></li>
+                </ul>
+              </div>
+           </div>
+        </div>
+       </div>
+     </header>
+    
+           <!--List Students  -->
+
+       <section id="sec_11">
+         <div class="ash_1">
+            <table class="tbbl_1">
+                <h2 class="h2_clss">Students List</h2>
+                <thead class="thh_1">
+                    <tr class="tr1_1">
+                        <th class="thdd_2">Reg.No.</th>
+                        <th class="thdd_2">Name</th>
+                        <th class="thdd_2">Branch</th>
+                        <th class="thdd_2">Registered-In</th>
+                        <th class="thdd_2">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="TBOD_1">
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12006956</td>
+                        <td class="tbdd_20" data-label="Name">Rahul Raj</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">Hero-Moto.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12819789</td>
+                        <td class="tbdd_20" data-label="Name">Joshua Little</td>
+                        <td class="tbdd_20" data-label="Branch">Electrical</td>
+                        <td class="tbdd_20" data-label="Registered-In">Phillips.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12120789</td>
+                        <td class="tbdd_20" data-label="Name">Mark Adair</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">Wipro.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn101">Not-Registered</a></td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12011134</td>
+                        <td class="tbdd_20" data-label="Name">George Dockrell</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">TCS.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12453331</td>
+                        <td class="tbdd_20" data-label="Name">Blessing Muzarbani</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">TCS.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn101">Not-Registered</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+         </div>
+         
+       </section>
+
+               <!-- Filter -->
+
+       <section id="sec_12">
+        <div class="ash_2">
+            <table class="tbbl_1">
+                <h2 class="h2_clss">Filter Students List</h2>
+                <thead class="thh_1">
+                    <tr class="tr1_1">
+                        <th class="thdd_2">Reg.No.</th>
+                        <th class="thdd_2">Name</th>
+                        <th class="thdd_2">Branch</th>
+                        <th class="thdd_2">Registered-In</th>
+                        <th class="thdd_2">Status</th>
+                        <th class="thdd_2">Filter</th>
+                    </tr>
+                </thead>
+                <tbody class="TBOD_1">
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12019290</td>
+                        <td class="tbdd_20" data-label="Name">Ashutosh Kumar</td>
+                        <td class="tbdd_20" data-label="Branch">Mechanical</td>
+                        <td class="tbdd_20" data-label="Registered-In">Hero-Moto.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                        <td class="tbdd_20" data-label="Filter"><input  id="tick" type="checkbox">
+                        </td>    
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12019789</td>
+                        <td class="tbdd_20" data-label="Name">Prafful Singh</td>
+                        <td class="tbdd_20" data-label="Branch">Electrical</td>
+                        <td class="tbdd_20" data-label="Registered-In">Phillips.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                            <td class="tbdd_20" data-label="Filter"><input  id="tick" type="checkbox">
+                            </td>     
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12000789</td>
+                        <td class="tbdd_20" data-label="Name">Sahil Kumar</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">Wipro.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn101">Not-Registered</a></td>
+                            <td class="tbdd_20" data-label="Filter"><a href=""
+                                class="btn105">Can't Filter</a></td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12011111</td>
+                        <td class="tbdd_20" data-label="Name">Mohit Anand</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">TCS.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                            <td class="tbdd_20" data-label="Filter"><input  id="tick" type="checkbox">
+                            </td>
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12013331</td>
+                        <td class="tbdd_20" data-label="Name">Shivam Pradhan</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">TCS.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn101">Not-Registered</a></td>
+                            <td class="tbdd_20" data-label="Filter"><a href=""
+                                class="btn105">Can't Filter</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="filtr_btn">
+                <botton type="button" onclick="funct1()"><span id="txt">Filter</span></botton>
+            </div>
+        </div>
+       </section>
+
+
+                 <!-- Register -->
+
+       <section id="sec_13">
+         <div class="ash_3">
+            <table class="tbbl_1">
+                <h2 class="h2_clss">Approve Students </h2>
+                <thead class="thh_1">
+                    <tr class="tr1_1">
+                        <th class="thdd_2">Reg.No.</th>
+                        <th class="thdd_2">Name</th>
+                        <th class="thdd_2">Branch</th>
+                        <th class="thdd_2">Registered-In</th>
+                        <th class="thdd_2">Status</th>
+                        <th class="thdd_2">Register</th>
+                    </tr>
+                </thead>
+                <tbody class="TBOD_1">
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12019290</td>
+                        <td class="tbdd_20" data-label="Name">Ashutosh Kumar</td>
+                        <td class="tbdd_20" data-label="Branch">Mechanical</td>
+                        <td class="tbdd_20" data-label="Registered-In">Hero-Moto.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                        <td class="tbdd_20" data-label="Register"><input  id="tick2" onclick="fun1()" type="checkbox">
+                        </td>    
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12019789</td>
+                        <td class="tbdd_20" data-label="Name">Prafful Singh</td>
+                        <td class="tbdd_20" data-label="Branch">Electrical</td>
+                        <td class="tbdd_20" data-label="Registered-In">Phillips.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                            <td class="tbdd_20" data-label="Register"><input  id="tick2" onclick="fun1()" type="checkbox">
+                            </td>     
+                    </tr>
+                    <tr class="tr2_2">
+                        <td class="tbdd_20" data-label="Reg.No.">12011111</td>
+                        <td class="tbdd_20" data-label="Name">Mohit Anand</td>
+                        <td class="tbdd_20" data-label="Branch">CSE</td>
+                        <td class="tbdd_20" data-label="Registered-In">TCS.org</td>
+                        <td class="tbdd_20" data-label="Status"><a href=""
+                            class="btn100">Registered</a></td>
+                            <td class="tbdd_20" data-label="Register"><input  id="tick2" onclick="fun1()" type="checkbox">
+                            </td>
+                    </tr>
+                </tbody>
+            </table>  
+         </div>
+       </section>
+
+
+                   <!-- Create -->
+
+       <section id="sec_14">
+        <p>Hello</p>
+       </section>
+
+        
+                     <!-- New -->
+
+       <section id="sec_15">
+        <p>Hello</p>
+       </section>
+
+
+                       <!-- Block -->
+
+       <section id="sec_16">
+        <p>Hello</p>
+       </section>
+
+                            <!-- Unblock -->
+
+       <section id="sec_17">
+        <p>Hello</p>
+       </section>
+
+
+                             <!-- Announcements -->
+
+       <section id="sec_18">
+        <p>Hello</p>
+       </section>
+
+                      <!-- Summary -->
+       <section id="sec_19">
+        <p>Hello</p>
+       </section>
+
+    </div>
+    <script>
+         function funct1(){
+            alert("Students Filtered..!!");
+        }
+
+        function fun1(){
+            alert("Student Approved...!!")
+        }
+    </script>
+</body>
+</html>

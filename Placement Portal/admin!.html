@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   <style>
+      *{
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'open sans', sans-serif;
+      }body{
+       background: whitesmoke;
+       width: 100%;
+       height:100%;
+      }
+      .Admin .sidebar{
+        background: rgb(5, 68, 105);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 225px;
+        height: 630px;
+        padding: 20px 0;
+        transition: all 0.5s ease;
+      }
+      .Admin .sidebar .profile{
+        margin-bottom: 35px;
+        text-align: center;
+      }
+      .Admin .sidebar .profile img{
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+      .Admin .sidebar .profile h3{
+        color: rgb(250, 154, 52);
+        margin: 10px 0 5px;
+      }
+      .Admin .sidebar .profile p{
+        color: rgb(250, 154, 52);
+        font-size: 15px;
+      }
+      .Admin .sidebar ul li a{
+        width: 225px;
+        display: block;
+        padding: 13px 30px;
+        color: rgb(250, 154, 52);
+        font-size: 17px;
+        position: relative;
+        cursor: pointer;
+        background-color: rgb(5, 68, 105);
+      }
+      .Admin .sidebar ul li a .item{
+        position: relative;
+      }
+      .Admin .sidebar ul li a .icon{
+        color:rgb(250, 154, 52);
+        width: 30px;
+        display: inline-block;
+      }
+      .Admin .sidebar ul li a:hover,
+      .Admin .sidebar ul li a.active{
+        color:orangered;
+        background: lightblue;
+        border-top: 3px solid orangered;
+        border-left:2px solid orangered;
+        border-bottom: 2px solid orangered;
+        border-right: 2px solid orangered;
+      }
+      .Admin .sidebar ul li a:hover .icon,
+      .Admin .sidebar ul li a.active .icon{
+        color:orangered;
+      }
+      .Admin .sidebar ul li a:hover::before,
+      .Admin .sidebar ul li a.active::before{
+        display: block;
+      }
+      .Admin .section{
+        width:calc(100% - 225px);
+        margin-left: 225px;
+        transition: all 0.5s ease;
+      }
+      .Admin .section .top_navbar{
+        background-color: rgb(5, 68, 105);
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        margin-bottom: 200px;
+      }
+      .Admin .section .top_navbar .ham a{
+          font-size: 28px;
+          color: rgb(250, 154, 52);
+      }
+      .Admin .section .top_navbar .ham a:hover{
+        color:orangered;
+      }
+      body.active .Admin .sidebar{
+        left: -225px;
+      }
+      body.active .Admin .section{
+        margin-left: 0;
+        width: 100%;
+      }
+      body.active .Admin .content{
+        margin-left: 0;
+        width: 100%;
+        transition: all 0.5s ease;
+      }
+     .Admin .content{
+        background: rgb(231, 164, 93); 
+        width: calc(100% - 225px);
+        margin-left: 225px;
+        height: 566px;
+        margin-top: -200px;
+        transition: all 0.5s ease; 
+     }
+     .Admin .content .cont3 .Profcon{
+        border-top: 5px blue;
+        border-left: 5px blue;
+        border-right: 5px blue;
+        border-bottom: 5px blue;
+     }
+    </style>
+</head>
+<body>
+   <div class="Admin">
+      <div class="sidebar">
+        <div class="profile">
+            <!--profile ko abhi change krna hai-->
+            <img src="student.png" alt="No Image Found">
+            <h3>Hello! Admin</h3>
+            <p>Welcome..!</p>
+        </div>
+        <div class="menu">
+            <ul>
+             <li><a href="#" onclick="fn1()" id="btn1">
+                 <span class="icon"><i class="fa-solid fa-user"></i></span>
+                 <span class="item">MY PROFILE</span>
+                </a></li>
+             <li><a href="#" onclick="fn2()" id="btn2">
+                <span class="icon"><i class="fas fa-desktop"></i></span>
+                <span class="item">UPDATES</span>
+            </a></li>
+             <li><a href="#" onclick="fn3()" id="btn3">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                <span class="item">DRIVES</span>
+            </a></li>
+             <li><a href="#" onclick="fn4()" id="btn4">
+                <span class="icon"><i class="fas fa-cog"></i></span>
+                <span class="item">SUMMARY</span>
+            </a></li>
+             <li><a href="#" onclick="" id="btn5">
+                <span class="icon"><i class="fa-solid fa-square-caret-left"></i></span>
+                <span class="item">LOGOUT</span>
+            </a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="top_navbar">
+            <div class="ham">
+                <a href="#"><i class="fas fa-bars"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="cont0" id="null" style="display: block">
+           <h3>This page is Default Page...!</h3>
+        </div>
+       <div class="cont1" id="Home" style="display: none">
+          <a href=""></a>
+       </div>
+       <div class="cont2" id="Dash" style="display: none">
+          <h3>This is the Dashboard page...!</h3>
+        </div>
+        <div class="cont3" id="Pro" style="display: none">
+           <h3>Your Profile !</h3>
+           <div class="Profcon">
+             <div class="prof1">
+                <img src="student.png" alt="NO image found">
+                <h3>Rahul Raj</h3>
+                <p><em>CSE B.Tech</em></p>
+             </div>
+             <div class="">
+
+             </div>
+           </div>
+        </div>
+        <div class="cont4" id="Set" style="display:none">
+           <h3>This is the Settings Page...!</h3>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ham = document.querySelector(".ham");
+    ham.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
+  document.getElementById("btn1").addEventListener("click", function fn1(){
+       var cont0=document.getElementById("null");
+       var cont1=document.getElementById("Home");
+       var cont2=document.getElementById("Dash");
+       var cont3=document.getElementById("Pro");
+       var cont4=document.getElementById("Set");
+       if(cont0.style.display === "block" || cont2.style.display === "block" 
+       || cont3.style.display === "block" || cont4.style.display === "block"){
+          cont0.style.display="none",
+          cont1.style.display ="block",
+          cont2.style.display ="none",
+          cont3.style.display ="none",
+          cont4.style.display ="none";
+       }
+       else{
+        cont0.style.display ="block";
+        cont1.style.display ="none";
+        cont2.style.display ="none",
+        cont3.style.display ="none",
+        cont4.style.display ="none";
+       }
+})
+document.getElementById("btn2").addEventListener("click", function fn2(){
+       var cont0=document.getElementById("null");
+       var cont1=document.getElementById("Home");
+       var cont2=document.getElementById("Dash");
+       var cont3=document.getElementById("Pro");
+       var cont4=document.getElementById("Set");
+       if(cont0.style.display === "block" || cont1.style.display === "block" 
+       || cont3.style.display === "block" || cont4.style.display === "block"){
+          cont0.style.display="none",
+          cont1.style.display ="none",
+          cont2.style.display ="block",
+          cont3.style.display ="none",
+          cont4.style.display ="none";
+       }
+       else{
+        cont0.style.display ="block";
+        cont1.style.display ="none";
+        cont2.style.display ="none",
+        cont3.style.display ="none",
+        cont4.style.display ="none";
+       }
+})
+document.getElementById("btn3").addEventListener("click", function fn3(){
+       var cont0=document.getElementById("null");
+       var cont1=document.getElementById("Home");
+       var cont2=document.getElementById("Dash");
+       var cont3=document.getElementById("Pro");
+       var cont4=document.getElementById("Set");
+       if(cont0.style.display === "block" || cont1.style.display === "block" 
+       || cont2.style.display === "block" || cont4.style.display === "block"){
+          cont0.style.display="none",
+          cont1.style.display ="none",
+          cont2.style.display ="none",
+          cont3.style.display ="block",
+          cont4.style.display ="none";
+       }
+       else{
+        cont0.style.display ="block";
+        cont1.style.display ="none";
+        cont2.style.display ="none",
+        cont3.style.display ="none",
+        cont4.style.display ="none";
+       }
+})
+document.getElementById("btn4").addEventListener("click", function fn4(){
+       var cont0=document.getElementById("null");
+       var cont1=document.getElementById("Home");
+       var cont2=document.getElementById("Dash");
+       var cont3=document.getElementById("Pro");
+       var cont4=document.getElementById("Set");
+       if(cont0.style.display === "block" || cont1.style.display === "block" 
+       || cont2.style.display === "block" || cont3.style.display === "block"){
+          cont0.style.display="none",
+          cont1.style.display ="none",
+          cont2.style.display ="none",
+          cont3.style.display ="none",
+          cont4.style.display ="block";
+       }
+       else{
+        cont0.style.display ="block";
+        cont1.style.display ="none";
+        cont2.style.display ="none",
+        cont3.style.display ="none",
+        cont4.style.display ="none";
+       }
+})
+   
+</script>
+</body>
+</html>

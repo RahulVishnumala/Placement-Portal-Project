@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family:'Times New Roman';
+    }
+    .main{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(to top, rgba(0,0,0,0.5)50%,  rgba(0,0,0,0.5)50%), url(2.jpg);
+        background-position: center;
+        background-size: cover;
+        padding-left: 5%;
+        padding-right: 5%;
+        box-sizing: border-box;   
+    }
+    .navbar{
+        height: 12%;
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+    }
+    .logo{
+        width: 85px;
+        height: 85px;
+        cursor:pointer;
+    }
+    nav{
+       flex: 1;
+       text-align: right;
+    }
+    .radio-btn{
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        font-family:'Times New Roman';
+        font-size: 20px;
+        user-select: none;
+        padding-left: 20px;
+        margin-right: 30px;
+        color: chartreuse;
+    }
+    .radio-btn input{
+        display: none;
+    }
+ .mark{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-color: orangered;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+    }
+    .radio-btn:hover .mark{
+        background-color: wheat;
+    }
+    .radio-btn input:checked + .mark:after{
+        content: "";
+        height: 10px;
+        width: 10px;
+        background-color: black;
+        position: absolute;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+    }
+    .row .col{
+        
+        padding: 80px;
+        padding-top: 0px;
+    }
+    .col{
+        flex-basis: 50%;
+    }
+    .col p{
+        line-height: 25px;
+    }
+    .col h2{
+        font-size: 75px;
+        line-height: 80px;
+    }
+    h2{
+        color:aliceblue;
+        font-size: 70px;
+        line-height: 60px;
+    }
+    span{
+        color: rgb(248, 73, 10);
+    }
+    p{
+        color:bisque;
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .btn{
+       width: 150px;
+       height: 35px;
+       background: orangered;
+       border: none;
+       margin-top: 30px;
+       margin-left:0;
+       font-size: 15px;
+       font-weight: bold;
+       border-radius: 15px;
+       cursor: pointer;
+       transition: .5s ease;
+       text-decoration: none;
+       color: rgb(6, 6, 6);
+       transition: .5s ease;
+
+    }
+    .btn:hover{
+        background-color: aqua;
+    }
+    .form{
+        width: 250px;
+        height: 340px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+        position:absolute;
+        top: 190px;
+        left: 1100px;
+        border-radius: 12px;
+        padding: 25px;
+       
+    }
+     .form h3{
+        width: 220px;
+        font-family:'Trebuchet MS';
+        text-align: center;
+        color: orangered;
+        font-size: 18px;;
+        background-color: azure;
+        margin: 2px;
+        border-radius: 10px;
+        padding: 8px;
+    }
+    .form input{
+        width:240px;
+        height: 35px;
+        background: transparent;
+        border-bottom: 1px solid orange;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        color:whitesmoke;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-top: 30px;
+        font-family: sans-serif;     
+    }
+    .form input:focus{
+        outline: none;
+    }
+    ::placeholder{
+        color: beige;
+        font-family: Arial;
+    }
+    .btn2{
+        width: 240px;
+        height: 40px;
+        background: orangered;
+        border: none;
+        margin-top: 30px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: blanchedalmond;
+        transition: 0.4s ease, transform 0.3s;
+    }
+    .btn2:hover{
+        background: whitesmoke;
+        color: orangered;
+        transform: translateY(-2px);
+    }
+    .btn2 a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+    .form .link{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        padding-top: 20px;
+        text-align: center;
+    }
+    .form .link a{
+        text-decoration: none;
+        color: orangered;
+    }
+    .login{
+        padding-top: 15px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    #alert{
+        display: none;
+        background-color: lightslategray;
+        border-radius: 15px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 110px;
+        padding-top: 50px;
+        border-bottom: 2px solid orangered;
+        box-shadow: 5px 10px 18px blue;
+    }
+    #msg{
+        font-size: medium;
+        font-weight: 500;
+        font-family: sans-serif;
+        vertical-align: middle;
+        text-align: center;
+        color: black;
+    }
+    #hint{
+        font-size: medium;
+        font-weight: 500;
+        font-family: sans-serif;
+        vertical-align: middle;
+        text-align: center;
+        color: black; 
+    }
+#ok{
+    color:black;
+    display: block;
+    width: 80px;
+    height: 30px;
+    margin: 22px 110px;
+    border: none;
+    background-color: orange;
+    text-align: center;
+    border-radius: 5px;
+   }
+   #ok:hover{
+    color: black;
+    background-color: orangered;
+    cursor: pointer;
+   }
+</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Portal</title>
+    
+    
+</head>
+<body>
+    <div class="main">
+         <div class="navbar">
+            <img src="logo.png" class="logo">
+            <nav>
+                <label class="radio-btn">
+                    <input id="adm1" onclick="fn2()"name="check" type="radio"> ADMIN
+                    <span class="mark"></span>
+                </label>
+                <label class="radio-btn">
+                    <input id="stu1" onclick="fn3()" name="check" type="radio"> STUDENT
+                    <span class="mark"></span>
+                </label>                             
+            </nav>
+         </div>
+         <div class="row">
+            <div class="col">
+                <h2>University<br><span>Placement</span><br>Portal..</h2>
+                <p>
+                    This is the Official Placement Portal of Our University.<br>
+                    Here you will get to know everything about the ongoing placement.<br>
+                    <em>Click on Explore to know more about us..</em>
+                </p>
+               <a href="https://en.wikipedia.org/wiki/Lovely_Professional_University"><button class="btn">Expolre</button></a>
+            </div>
+            <div class="form">
+               <h3>Login here</h3>
+               <input type="" id="stu2" name="" placeholder="Enter Your Reg.No..">
+               <input type="password"  id="pass2" name="" placeholder="Please Enter password">
+               <button class="btn2" onclick="fun4()" >Login</button>
+               
+
+               <p class="link">Don't have an account <br>
+               <a href="registerNow.html">Register</a> here</p>
+               <!-- <p class="login">R</p> -->
+            </div>
+         </div>
+         <div id="alert">
+            <div id="msg"><b>Something is Wrong..!<br>
+                Check Password/Username...!</b></div>
+            <div id="hint">HINT :-(_12345,12345)</div>
+            <div >
+                <button id="ok" onclick="hide()">Ok</div>
+        </div>
+    </div>
+   
+    <script>
+        
+       function fn2(){
+             var abc = document.getElementById("adm1");
+             var reg = document.getElementById("stu2").value='ADM_';
+             if(abc.checked == true){
+               // reg.display = block;
+             }else{
+                reg.display=none;
+             } 
+        }
+       function fn3(){
+             var abc = document.getElementById("stu1");
+             var reg = document.getElementById("stu2").value='2023_';
+             if(abc.checked == true){
+               // reg.display = ;
+             }else{
+                reg.display=none;
+            }
+        }
+        var map1=new Map([["2023_12345","12345"]]);
+        var map2=new Map([["ADM_12345","12345"]]);
+        function fun4(){
+            var user=document.getElementById("stu2").value;
+            var pass=document.getElementById("pass2").value;
+            var alert=document.getElementById("alert");
+            if(map1.has(user)==true && map1.get(user)==pass){
+                //console.log("Logged in successfully");
+                alert.style.display="none";
+                window.location.href="student.html";
+            }if(map2.has(user)==true && map2.get(user)==pass){
+                alert.style.display="none",
+                window.location.href="2Admin.html";
+            }
+            else{
+                alert.style.display="block";
+            }
+        }
+        function hide(){
+          var alert=document.getElementById("alert");
+          alert.style.display="none";
+        }     
+    </script>
+    
+</body>
+</html>
